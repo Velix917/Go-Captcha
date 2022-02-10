@@ -18,5 +18,5 @@ func checkApiResponse(body string) bool {
 
 // Gets the result from api
 func parseResult(body string) string {
-	return strings.Split(body, "|")[1]
+	return strings.Split(body, "OK|")[1]
 }
