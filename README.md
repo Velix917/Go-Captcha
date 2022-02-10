@@ -1,5 +1,5 @@
 # Go-Captcha
-Another 2captcha wrapper but made in Golang. Currently only supports google recaptcha v2
+Another 2captcha wrapper but made in Golang. Currently only supports google recaptcha v2 and funcaptcha (the two ones i mostly use). For solving other captchas use the official library.
 
 Usage
 -----
