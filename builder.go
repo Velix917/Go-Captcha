@@ -4,9 +4,8 @@ import (
 	"net/url"
 )
 
-// **** Structs ***** //
-
 type ICaptchaRequest interface {
+	MakeParams()
 	ToString() string
 	Get(string) string
 	Add(string, string)
@@ -23,38 +22,29 @@ type FunCaptcha struct{ CaptchaRequest }
 type CapyCaptcha struct{ CaptchaRequest }
 type TikTokCaptcha struct{ CaptchaRequest }
 
-// **** Initializers **** //
+func BuildCaptcha(captcha ICaptchaRequest, method string) ICaptchaRequest {
+	captcha.MakeParams()
+	captcha.Add("method", method)
+	return captcha
+}
 
 func NewRecaptchaV2() *ReCaptchaV2 {
-	recaptchav2 := &ReCaptchaV2{}
-	recaptchav2.Params = make(url.Values)
-	recaptchav2.Params.Add("method", "userrecaptcha")
-	return recaptchav2
+	return BuildCaptcha(&ReCaptchaV2{}, "userrecaptcha").(*ReCaptchaV2)
 }
 
 func NewFuncaptcha() *FunCaptcha {
-	funcaptcha := &FunCaptcha{}
-	funcaptcha.Params = make(url.Values)
-	funcaptcha.Params.Add("method", "funcaptcha")
-	return funcaptcha
+	return BuildCaptcha(&FunCaptcha{}, "funcaptcha").(*FunCaptcha)
 }
 
 func NewCapyCaptcha() *CapyCaptcha {
-	capycaptcha := &CapyCaptcha{}
-	capycaptcha.Params = make(url.Values)
-	capycaptcha.Params.Add("method", "capy")
-	return capycaptcha
+	return BuildCaptcha(&CapyCaptcha{}, "capy").(*CapyCaptcha)
 }
 
 func NewTikTokCaptcha() *TikTokCaptcha {
-	tiktokcaptcha := &TikTokCaptcha{}
-	tiktokcaptcha.Params = make(url.Values)
-	tiktokcaptcha.Params.Add("method", "tiktok")
-	return tiktokcaptcha
+	return BuildCaptcha(&TikTokCaptcha{}, "tiktok").(*TikTokCaptcha)
 }
 
-// **** Methods ***** //
-
+func (c *CaptchaRequest) MakeParams()            { c.Params = make(url.Values) }
 func (c *CaptchaRequest) ToString() string       { return c.Params.Encode() }
 func (c *CaptchaRequest) Get(k string) string    { return c.Params.Get(k) }
 func (c *CaptchaRequest) Add(k string, v string) { c.Params.Add(k, v) }
