@@ -87,8 +87,6 @@ func (r *Client) Solve(captcha ICaptchaRequest) (string, error) {
 		if err != nil {
 			return "", err
 		}
-		
-		fmt.Println(result)
 
 		if result != "" {
 			return result, nil
