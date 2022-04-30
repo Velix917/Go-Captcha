@@ -58,7 +58,7 @@ func (r *ReCaptchaV2) SetProxy(proxy string)     { r.CaptchaRequest.Params.Add("
 func (f *FunCaptcha) SetPublicKey(pkey string)   { f.CaptchaRequest.Params.Add("publickey", pkey) }
 func (f *FunCaptcha) SetServerUrl(surl string)   { f.CaptchaRequest.Params.Add("surl", surl) }
 func (f *FunCaptcha) SetPageUrl(purl string)     { f.CaptchaRequest.Params.Add("pageurl", purl) }
-func (f *FunCaptcha) SetCustomData(cdata string) { f.CaptchaRequest.Params.Add("data[key]", cdata) }
+func (f *FunCaptcha) SetCustomData(cdata string) { f.CaptchaRequest.Params.Add("data[blob]", cdata) }
 
 func (c *CapyCaptcha) SetCaptchaKey(ckey string) { c.CaptchaRequest.Params.Add("captchakey", ckey) }
 func (c *CapyCaptcha) SetApiServer(aserv string) { c.CaptchaRequest.Params.Add("api_server", aserv) }
