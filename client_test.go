@@ -3,7 +3,7 @@ package gocaptcha
 import "testing"
 
 func TestClient(t *testing.T) {
-	client := NewClient("Your-key")
+	client := NewClient("Your-key", "https://2captcha.com/in.php", "https://2captcha.com/res.php")
 
 	captcha := NewRecaptchaV2()
 	captcha.SetSiteKey("6LeIxboZAAAAAFQy7d8GPzgRZu2bV0GwKS8ue_cH")

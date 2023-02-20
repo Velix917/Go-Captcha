@@ -8,15 +8,17 @@ import (
 	"time"
 )
 
-const CaptchaIn string = "https://2captcha.com/in.php"
-const CaptchaRes string = "https://2captcha.com/res.php"
+var CaptchaIn string = "https://2captcha.com/in.php"
+var CaptchaRes string = "https://2captcha.com/res.php"
 
 type Client struct {
 	Key     string
 	HClient *http.Client
 }
 
-func NewClient(key string, hclient ...*http.Client) *Client {
+func NewClient(key, in, res string, hclient ...*http.Client) *Client {
+	CaptchaIn = in
+	CaptchaRes = res
 	if len(hclient) > 0 {
 		return &Client{Key: key, HClient: hclient[0]}
 	}
