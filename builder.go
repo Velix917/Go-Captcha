@@ -49,23 +49,25 @@ func (c *CaptchaRequest) ToString() string       { return c.Params.Encode() }
 func (c *CaptchaRequest) Get(k string) string    { return c.Params.Get(k) }
 func (c *CaptchaRequest) Add(k string, v string) { c.Params.Add(k, v) }
 
-func (r *ReCaptchaV2) SetSiteKey(sitekey string) { r.CaptchaRequest.Params.Add("googlekey", sitekey) }
-func (r *ReCaptchaV2) SetUrl(uri string)         { r.CaptchaRequest.Params.Add("pageurl", uri) }
-func (r *ReCaptchaV2) SetInvisible(inv bool)     { r.CaptchaRequest.Params.Add("invisible", boolConv(inv)) }
-func (r *ReCaptchaV2) SetAction(action string)   { r.CaptchaRequest.Params.Add("sitekey", action) }
-func (r *ReCaptchaV2) SetProxy(proxy string)     { r.CaptchaRequest.Params.Add("proxy", proxy) }
+func (r *ReCaptchaV2) FSetSiteKey(sitekey string) { r.CaptchaRequest.Params.Add("googlekey", sitekey) }
+func (r *ReCaptchaV2) FSetUrl(uri string)         { r.CaptchaRequest.Params.Add("pageurl", uri) }
+func (r *ReCaptchaV2) FSetInvisible(inv bool) {
+	r.CaptchaRequest.Params.Add("invisible", boolConv(inv))
+}
+func (r *ReCaptchaV2) FSetAction(action string) { r.CaptchaRequest.Params.Add("sitekey", action) }
+func (r *ReCaptchaV2) FSetProxy(proxy string)   { r.CaptchaRequest.Params.Add("proxy", proxy) }
 
-func (f *FunCaptcha) SetPublicKey(pkey string)   { f.CaptchaRequest.Params.Add("publickey", pkey) }
-func (f *FunCaptcha) SetServerUrl(surl string)   { f.CaptchaRequest.Params.Add("surl", surl) }
-func (f *FunCaptcha) SetPageUrl(purl string)     { f.CaptchaRequest.Params.Add("pageurl", purl) }
-func (f *FunCaptcha) SetCustomData(cdata string) { f.CaptchaRequest.Params.Add("data[blob]", cdata) }
+func (f *FunCaptcha) FSetPublicKey(pkey string)   { f.CaptchaRequest.Params.Add("publickey", pkey) }
+func (f *FunCaptcha) FSetServerUrl(surl string)   { f.CaptchaRequest.Params.Add("surl", surl) }
+func (f *FunCaptcha) FSetPageUrl(purl string)     { f.CaptchaRequest.Params.Add("pageurl", purl) }
+func (f *FunCaptcha) FSetCustomData(cdata string) { f.CaptchaRequest.Params.Add("data[blob]", cdata) }
 
-func (c *CapyCaptcha) SetCaptchaKey(ckey string) { c.CaptchaRequest.Params.Add("captchakey", ckey) }
-func (c *CapyCaptcha) SetApiServer(aserv string) { c.CaptchaRequest.Params.Add("api_server", aserv) }
-func (c *CapyCaptcha) SetVersion(ver string)     { c.CaptchaRequest.Params.Add("version", ver) }
-func (c *CapyCaptcha) SetPageUrl(purl string)    { c.CaptchaRequest.Params.Add("pageurl", purl) }
+func (c *CapyCaptcha) FSetCaptchaKey(ckey string) { c.CaptchaRequest.Params.Add("captchakey", ckey) }
+func (c *CapyCaptcha) FSetApiServer(aserv string) { c.CaptchaRequest.Params.Add("api_server", aserv) }
+func (c *CapyCaptcha) FSetVersion(ver string)     { c.CaptchaRequest.Params.Add("version", ver) }
+func (c *CapyCaptcha) FSetPageUrl(purl string)    { c.CaptchaRequest.Params.Add("pageurl", purl) }
 
-func (t *TikTokCaptcha) SetAid(aid string)       { t.CaptchaRequest.Params.Add("aid", aid) }
-func (t *TikTokCaptcha) SetHost(host string)     { t.CaptchaRequest.Params.Add("host", host) }
-func (t *TikTokCaptcha) SetPageUrl(purl string)  { t.CaptchaRequest.Params.Add("pageurl", purl) }
-func (t *TikTokCaptcha) SetCookies(ckies string) { t.CaptchaRequest.Params.Add("cookies", ckies) }
+func (t *TikTokCaptcha) FSetAid(aid string)       { t.CaptchaRequest.Params.Add("aid", aid) }
+func (t *TikTokCaptcha) FSetHost(host string)     { t.CaptchaRequest.Params.Add("host", host) }
+func (t *TikTokCaptcha) FSetPageUrl(purl string)  { t.CaptchaRequest.Params.Add("pageurl", purl) }
+func (t *TikTokCaptcha) FSetCookies(ckies string) { t.CaptchaRequest.Params.Add("cookies", ckies) }

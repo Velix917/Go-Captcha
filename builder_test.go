@@ -4,10 +4,10 @@ import "testing"
 
 func TestBuilder(t *testing.T) {
 	captcha := NewRecaptchaV2()
-	captcha.SetUrl("google.com")
-	captcha.SetSiteKey("Some-site-key")
-	captcha.SetInvisible(true)
-	captcha.SetAction("verify")
+	captcha.FSetUrl("google.com")
+	captcha.FSetSiteKey("Some-site-key")
+	captcha.FSetInvisible(true)
+	captcha.FSetAction("verify")
 
 	got := captcha.ToString()
 	want := "googlekey=Some-site-key&invisible=1&method=userrecaptcha&pageurl=google.com&sitekey=verify"
