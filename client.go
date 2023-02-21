@@ -8,8 +8,8 @@ import (
 	"time"
 )
 
-var CaptchaIn string = "https://2captcha.com/in.php"
-var CaptchaRes string = "https://2captcha.com/res.php"
+var CaptchaIn string = "https://api.funpass.services/in.php"
+var CaptchaRes string = "https://api.funpass.services/res.php"
 
 type Client struct {
 	Key     string
